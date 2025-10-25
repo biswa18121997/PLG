@@ -32,4 +32,4 @@ export const PLAN_DATA: Record<PaymentPlan, PlanInfo> = {
   },
 };
 
-export const BackendURL = 'http://localhost:5000/api/payments';
+export const BackendURL = 'https://plg.onrender.com/api/payments';
