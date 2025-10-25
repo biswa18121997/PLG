@@ -15,6 +15,9 @@ app.use(
   })
 );
 app.options("*", cors());
+app.all('/*', (req, res) => {
+  res.status(404).send('Route not found');
+});
 app.use(express.json());
 
 mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
