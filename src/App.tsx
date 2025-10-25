@@ -13,7 +13,14 @@ const App: React.FC = () => {
                     <Route path="/:id" element={<SummaryPage />} />
                     <Route
                         path="/"
-                        element={<div>Welcome! Go to /admin or /:id</div>}
+                        element={
+                            <div>
+                                Go to FlashFireJobs{" "}
+                                <a href="https://www.flashfirejobs.com/">
+                                    Click here
+                                </a>{" "}
+                            </div>
+                        }
                     />
                 </Routes>
             </div>

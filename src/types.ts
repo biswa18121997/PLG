@@ -31,3 +31,5 @@ export const PLAN_DATA: Record<PaymentPlan, PlanInfo> = {
     link: 'https://www.paypal.com/ncp/payment/CDRFGB6M566X8' 
   },
 };
+
+export const BackendURL = 'http://localhost:5000/api/payments';

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PaymentDetails, PLAN_DATA } from "../types";
+import { BackendURL, PaymentDetails, PLAN_DATA } from "../types";
 import { calculateAmount } from "../calculateAmount";
 import CustomerForm from "./CustomerForm";
 import PaymentSummary from "./PaymentSummary";
@@ -62,15 +62,15 @@ const AdminPage: React.FC = () => {
                 formData.discount && customPayPalLink
                     ? customPayPalLink
                     : PLAN_DATA[formData.plan!].link,
-        };
+        };     
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/payments",
+                BackendURL,
                 completePaymentDetails
             );
             const id = response.data._id;
-            const link = `http://localhost:3000/${id}`;
+            const link = `${window.location.origin}/${id}`;
             navigator.clipboard.writeText(link);
             alert(`Payment link copied to clipboard: ${link}`);
         } catch (error) {

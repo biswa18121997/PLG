@@ -1,67 +1,28 @@
-import React, { useState, useEffect } from "react";
+import type React from "react"
 
-interface HeaderProps {
-    dueDate?: string;
+const Header: React.FC = () => {
+  return (
+    <header className="bg-white p-6 flex flex-col items-center text-center">
+      {/* Logo Only */}
+      {/* <div className="flex items-center justify-center mb-4">
+        <img
+          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAMAAABF0y+mAAAAM1BMVEXDAADDAADJJyfHEBDQRkbmnp7jkJDdfn7qsLD11tb////55OT88PDZaGjwx8fVV1fDAAAxRdW2AAAAEXRSTlPy////////////////////8xOnmdYAAACeSURBVHgBfdFFggMgDEDRxpAI6f0vO1pH/vbhXM7BvhUibZGlbJBr61phgSjdXNV4gcX1NwuYsfyKjwTMaU+2HwnCLC4Thvb4O45qTMvWHuVX1AU/kTLaL1mrOB8I5YdGMBDNmK7jR7IJTkii/1nChGh6v+eM/Et9VIIFpqoJb/4z1CvAFgduMVVgi+y8R+xwwHpAoBPCCq8nvFz3fQOG8wlzucv/6AAAAABJRU5ErkJggg=="
+          alt="Logo"
+          className="h-16 w-16 object-contain"   // bigger logo
+        />
+      </div> */}
+
+      {/* Payment Info */}
+      <div>
+        <h3 className="text-lg font-semibold text-gray-800">
+          Authorized Payment Options
+        </h3>
+        <p className="text-sm text-gray-500">
+          Please use any of the following options to complete your payment.
+        </p>
+      </div>
+    </header>
+  )
 }
 
-const Header: React.FC<HeaderProps> = ({ dueDate }) => {
-    const [dueDateTimeRemaining, setDueDateTimeRemaining] = useState<number>(0);
-
-    const formatTime = (seconds: number): string => {
-        const days = Math.floor(seconds / (3600 * 24));
-        const hours = Math.floor((seconds % (3600 * 24)) / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = seconds % 60;
-        return `${days}d ${hours}h ${minutes}m ${secs}s`;
-    };
-
-    useEffect(() => {
-        if (!dueDate) return;
-
-        const dueDateTimestamp = new Date(dueDate).getTime();
-        const timer = setInterval(() => {
-            const now = Date.now();
-            const remaining = Math.max(
-                0,
-                Math.floor((dueDateTimestamp - now) / 1000)
-            );
-
-            setDueDateTimeRemaining(remaining);
-        }, 1000);
-
-        return () => clearInterval(timer);
-    }, [dueDate]);
-
-    return (
-        <header className="payment-header">
-            <div className="payment-header-content">
-                <div className="company-header">
-                    <div className="company-logo">🔥</div>
-                    <div className="company-header-info">
-                        <h1>FlashFire Jobs</h1>
-                        <p>Where careers ignite</p>
-                    </div>
-                </div>
-                {dueDate && (
-                    <div className="due-date-timer">
-                        <div className="timer-text">
-                            Due in: {formatTime(dueDateTimeRemaining)}
-                        </div>
-                    </div>
-                )}
-                <div className="payment-options-header">
-                    <div className="payment-icon">💳</div>
-                    <div className="payment-header-text">
-                        <h3>Authorized payment options by FlashFire Jobs</h3>
-                        <p className="payment-instruction">
-                            Please use any of the following options for the
-                            payment.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </header>
-    );
-};
-
-export default Header;
+export default Header

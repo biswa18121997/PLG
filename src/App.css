@@ -1,4 +1,9 @@
 /* Simple FlashFire Jobs Payment Generator UI */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Simple FlashFire Jobs Payment Generator UI */
 * {
   margin: 0;
   padding: 0;
@@ -244,17 +249,19 @@ body {
 
 .payment-header {
   background-color: white;
-  padding: 0.75rem 0.75rem;
+  padding: 0.5rem 0.5rem;
+  /* Reduced padding to reduce height */
 }
 
 .payment-header-content {
   max-width: 1400px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 0.75rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0;
+  /* Reduced padding */
 }
 
 .due-date-timer {
@@ -271,10 +278,16 @@ body {
   padding: 0.5rem;
 }
 
+.timer-text.low-time {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+
 .right-section-container {
   display: flex;
-    flex-direction: column;
-    height: 100%;
+  flex-direction: column;
+  height: 100%;
 }
 
 .payment-options-header {
@@ -293,7 +306,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   color: white;
   flex-shrink: 0;
 }
@@ -314,13 +327,13 @@ body {
 
 .company-logo {
   width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #007bff;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
 }
 
 .company-header-info h1 {
@@ -338,15 +351,15 @@ body {
 
 .payment-content {
   max-width: 1400px;
-    margin: 0.5rem auto;
-    padding: 0 0.75rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-    align-items: start;
+  margin: 0.5rem auto;
+  padding: 0 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: center;
 }
 
-.payment-details-card {
+/* .payment-details-card {
   background-color: white;
   border-radius: 8px;
   padding: 1rem;
@@ -355,11 +368,11 @@ body {
 }
 
 .payment-details-card h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.1rem;
+  font-weight: 500;
   color: #2c3e50;
-  margin-bottom: 1rem;
-}
+  margin-bottom: 20px;
+} */
 
 .detail-row {
   display: flex;
@@ -375,12 +388,12 @@ body {
 
 .detail-label {
   font-weight: 500;
-  color: #495057;
+  color: #131313;
 }
 
 .detail-value {
   font-weight: 500;
-  color: #2c3e50;
+  color: #020202;
 }
 
 .detail-value.amount {
@@ -397,11 +410,12 @@ body {
 
 .payment-actions-card {
   background-color: white;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e9ecef;
-    min-height: 100%;
+  border-radius: 8px;
+  padding: 1rem;
+  
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+  min-height: 100%;
 }
 
 
@@ -440,8 +454,10 @@ body {
 }
 
 .pay-now-button {
-  width: 100%;
-  padding: 0.6rem;
+  width: auto;
+  /* Changed from 100% to auto for half width */
+  padding: 0.8rem 2rem;
+  /* Increased padding for better look */
   background-color: #28a745;
   color: white;
   border: none;
@@ -454,6 +470,7 @@ body {
   display: inline-block;
   text-align: center;
   margin-bottom: 0.6rem;
+  margin-top: 0.6rem;
 }
 
 .pay-now-button:hover {
@@ -569,7 +586,7 @@ body {
   border: 1px solid #e9ecef;
   border-radius: 8px;
   padding: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .payment-option h5 {
@@ -590,7 +607,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 0;
+  padding: 0.1rem 0;
   border-bottom: 1px solid #e9ecef;
 }
 
@@ -600,13 +617,13 @@ body {
 
 .option-detail-item .detail-label {
   font-weight: 500;
-  color: #495057;
+  color: #1e1f20;
   font-size: 0.8rem;
 }
 
 .option-detail-item .detail-value {
   font-weight: 500;
-  color: #2c3e50;
+  color: #0d0d0e;
   font-size: 0.8rem;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
 }
@@ -625,6 +642,7 @@ body {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+
   .main-container,
   .payment-content {
     grid-template-columns: 1fr;
@@ -632,48 +650,49 @@ body {
     margin: 1rem auto;
     padding: 0 0.5rem;
   }
-  
-  .form-section,
+
+  /* .form-section,
   .summary-section,
   .payment-details-card,
   .payment-actions-card {
     padding: 1rem;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
+
   .header-content,
   .payment-header-content {
     padding: 0 1rem;
   }
-  
+
   .company-info h1 {
     font-size: 2.5rem;
   }
-  
+
   .main-container,
   .payment-content {
     padding: 0 0.5rem;
     margin: 1rem auto;
   }
-  
+
   .form-section,
   .summary-section,
   .payment-details-card,
   .payment-actions-card {
     padding: 1rem;
   }
-  
+
   .company-header-info h1 {
     font-size: 1.5rem;
   }
-  
+
   .btn-primary,
   .pay-now-button {
     padding: 1rem 1.5rem;
     font-size: 1rem;
   }
-  
+
   .summary-placeholder {
     height: 250px;
     padding: 1rem;
@@ -685,12 +704,12 @@ body {
     align-items: flex-start;
     gap: 0.25rem;
   }
-  
+
   .company-details-section,
   .payment-option {
     padding: 1rem;
   }
-  
+
   .company-info-grid,
   .option-details {
     gap: 0.5rem;
@@ -706,180 +725,197 @@ body {
 
 /* Codingal Style Layout */
 .amount-section {
-  margin-bottom: 0.75rem;
+  /* margin-bottom: 0.75rem; */
 }
 
 .amount-display {
   font-size: 1.4rem;
-  font-weight: 700;
+  font-weight: 500;
   color: #2c3e50;
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 .customer-info {
-  margin-bottom: 0.5rem;
+  /* margin-bottom: 0.5rem; */
 }
 
 .customer-name {
   font-size: 0.9rem;
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 0.25rem;
+  font-weight: 500;
+  color: #070707;
+  margin-bottom: 0.1rem;
 }
 
 .customer-contact {
-  color: #6c757d;
+  color: #0d0d0d;
 }
 
 .contact-item {
-  margin-bottom: 0.25rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+   /* margin-bottom: 0.1rem; */
 }
 
-.expiration-info {
+/* .expiration-info {
   background-color: #fff3cd;
-  border: 1px solid #ffeaa7;
+  border: 1px solid #f5c31e;
   border-radius: 4px;
   padding: 0.75rem;
   margin-bottom: 1rem;
-}
+} */
 
 .expiration-text {
   font-size: 0.75rem;
   color: #856404;
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.1rem;
 }
 
 .due-date-section {
-  margin-bottom: 1rem;
+   margin-bottom: 0.1rem;
 }
 
 .due-date-label {
-  font-size: 0.8rem;
-  color: #6c757d;
-  margin-bottom: 0.2rem;
+  font-size: 0.9rem;
+  color: #0c0c0c;
+  font-weight: 500;
+  /* margin-bottom: 0.2rem; */
 }
 
-.due-date-value {
+/* .due-date-value {
   font-size: 0.85rem;
   font-weight: 500;
   color: #2c3e50;
-}
+} */
 
 .service-details-section {
   margin-bottom: 0.75rem;
 }
 
 .service-description {
-  font-size: 0.8rem;
-  color: #2c3e50;
-  margin-bottom: 0.25rem;
+  font-size: 0.9rem;
+  color: #060606;
+  font-weight: 500;
+  margin-bottom: 0.1rem;
 }
 
 .service-credits {
-  font-size: 0.75rem;
-  color: #6c757d;
-  margin-bottom: 0.1rem;
+  font-size: 0.9rem;
+  color: #141414;
+  font-weight: 500;
+ margin-bottom: 0.1rem;
 }
 
 .payment-status {
-  font-size: 0.75rem;
-  color: #6c757d;
-  margin-bottom: 0.1rem;
+  font-size: 0.9rem;
+  color: #181818;
+  font-weight: 500;
+ margin-bottom: 0.1rem;
 }
 
 .payment-id {
-  font-size: 0.7rem;
-  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #070707;
   font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
 }
 
 .service-plan-section {
-  background-color: #f8f9fa;
+  background-color: #f7f8f8;
   border-radius: 8px;
   padding: 0.75rem;
-  border: 1px solid #e9ecef;
+  border: 1px solid #b3b4b4;
 }
 
 .service-plan-section h3 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #1c1d1e;
   margin-bottom: 0.4rem;
 }
 
 .plan-info {
   display: grid;
-  gap: 0.3rem;
+  /* gap: 0.3rem; */
 }
 
 .plan-name {
-  font-size: 0.8rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: #2c3e50;
 }
 
 .discount-info {
-  margin: 0.5rem 0;
+  margin-bottom: 0.1rem;
 }
 
 .discount-percentage {
-  font-size: 0.8rem;
-  color: #28a745;
+  font-size: 0.9rem;
+  color: #03ab2a;
   font-weight: 500;
+   margin-bottom: 0.1rem;
 }
 
 .original-price {
-  font-size: 0.8rem;
-  color: #6c757d;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 500;
+   margin-bottom: 0.1rem;
 }
 
 .final-price {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: #2c3e50;
+   margin-bottom: 0.1rem;
 }
 
 .service-type {
-  font-size: 0.8rem;
-  color: #6c757d;
+  font-size: 0.9rem;
+  color: #2c3e50;
+  font-weight: 500;
+   margin-bottom: 0.1rem;
 }
 
 .payment-option {
-  font-size: 0.8rem;
-  color: #6c757d;
+  font-size: 0.9rem;
+  color: #0a0a0a;
+font-weight: 500;
+ margin-bottom: 1rem;
 }
 
 .payment-instruction {
-  font-size: 0.7rem;
-  color: #6c757d;
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #2c3e50;
+   margin-bottom: 0.1rem;
 }
 
 .recommended-payment {
   background-color: #f8f9fa;
   border-radius: 8px;
   padding: 0.6rem;
-  margin-bottom: 0.6rem;
+  /* margin-top: 0.6rem; */
   border: 1px solid #e9ecef;
 }
 
 .recommended-payment p {
-  font-size: 0.7rem;
-  color: #6c757d;
-  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  color: #3d3d3e;
+  /* margin-bottom: 0.3rem; */
+  max-width: 80%;
+  /* Reduce length */
 }
 
 .payment-option h4 {
-  font-size: 0.75rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: #2c3e50;
+  color: #060606;
   margin-bottom: 0.5rem;
 }
 
 
 .company-header {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   gap: 0.5rem;
 }
@@ -887,6 +923,107 @@ body {
 .company-header-info {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.app-scale-wrapper {
+  transform: scale(0.84);
+  transform-origin: top center;
+  width: 125%;
+  transform-origin: top center;
+  width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+  
+}
+    ::-webkit-scrollbar {
+      display: none;
+      /* Hides the scrollbar */
+    }
+
+
+
+.payment-details-card {
+  background: #fff;
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  /* margin: 1rem auto; */
+  max-width: 900px;
+  max-height: 100%;
+  font-family: "Inter", sans-serif;
+}
+
+.payment-details-card h2 {
+  margin-bottom: 5px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #0e0d0d;
+}
+
+.amount-section {
+  /* margin-bottom: 1rem; */
+}
+
+.amount-display {
+  font-size: .9rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 0.1rem;
+}
+
+.customer-info {
+  /* margin-top: 0.5rem; */
+  color: #0b0b0b;
+  font-size: 0.95rem;
+    margin-bottom: 0.2rem;
+}
+
+.expiration-info {
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border-left: 4px solid #ff9800;
+  background: #fff7e6;
+  font-size: 0.9rem;
+}
+
+.service-plan-section {
+  margin-top: 1.7rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f9fafb;
+  border: 1px solid #e0e0e0;
+}
+
+.refund-policy {
+  margin-top: 2rem;
+  padding: 1.2rem;
+  border-radius: 8px;
+  background: #f4f6ff;
+  border: 1px solid #d5dcff;
+}
+
+.refund-policy h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a237e;
+  margin-bottom: 0.6rem;
+}
+
+.refund-policy p {
+  color: #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.refund-policy strong {
+  color: #111;
+}
+
+.no-refund-note {
+  margin-top: 0.8rem;
+  font-weight: 500;
+  color: #2e7d32;
 }
